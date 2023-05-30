@@ -18,3 +18,8 @@ requestBody: {
     "tenantId": "1245",
     "peerId": "4"
 }
+
+IMPOETANT NOTE: you must have Redis installed on your machine to run it successfully
+if you don't have it please open terminal and run commands:
+1. brew install redis
+2. redis-server
