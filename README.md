@@ -2,6 +2,9 @@
 note that the web server I wrote support two way testing to your convenience.
 
 if you wanna test manually do the following:
+First, run WireguardServer in your env./IDE
+
+Then,
 you can test manually with postman like this: POST: http://localhost:8080/wireguard-manual/add  
 requestBody: {
     "tenantId": "1245",
