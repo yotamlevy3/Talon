@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'javax.json:javax.json-api:1.1.4'
+    implementation 'org.glassfish:javax.json:1.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'org.json:json:20200518'
+    implementation 'redis.clients:jedis:3.7.0'
+    implementation 'javax.websocket:javax.websocket-api:1.1'
+    implementation 'org.glassfish.tyrus:tyrus-server:1.15'
+    implementation 'org.glassfish.tyrus:tyrus-client:1.15'
+    implementation 'jakarta.websocket:jakarta.websocket-api:2.0.0'
+    implementation 'org.apache.kafka:kafka-clients:2.8.0'
+    implementation 'jakarta.websocket:jakarta.websocket-api:1.1.2'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'org.slf4j:slf4j-simple:1.6.1'
+    implementation 'io.lettuce:lettuce-core:+'
+
+}
+
+test {
+    useJUnitPlatform()
+}
