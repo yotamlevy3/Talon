@@ -70,7 +70,7 @@ public class Tenant {
         connection.disconnect();
     }
 
-    public void sendPostDisconnectAPeer(String peerId) throws IOException, JSONException {
+    public void sendDisconnectAPeer(String peerId) throws IOException, JSONException {
         JSONObject requestBody = new JSONObject();
         requestBody.put("tenantId", tenantId);
         requestBody.put("peerId", peerId);

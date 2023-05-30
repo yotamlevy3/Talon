@@ -26,7 +26,7 @@ public class ITest {
         peer1.setTenantId("tenant1");
         peer1.setPublicKey("publicKey1");
 
-        //tenant asks server's API to assign their peer in a request
+        //tenant asks server's API through an HTTP request to assign their peer
         tenant.sendPostRequestToAssignNewPeer(peer1.getPeerId(), peer1.getPublicKey());
         waitForServerToHandleRequest();
         assertEquals(1, service.getTenants().size());
@@ -41,7 +41,7 @@ public class ITest {
         assertEquals(1, service.getTenants().size());
         assertEquals(2 ,service.getPeers().size());
 
-        //multi-tenancy
+        //multi-tenancy - another tenant asks server's API through an HTTP request to assign their peer
         Tenant tenant2 = new Tenant();
         tenant2.setTenantId("tenant2");
         tenant2.setOverlayNetworkId("overlayNetwork2");
@@ -56,9 +56,9 @@ public class ITest {
         assertEquals(3 ,service.getPeers().size());
         assertEquals(3, service.getPeersPublicKeys().size());
 
-        tenant.sendPostDisconnectAPeer("peer1");
+        tenant.sendDisconnectAPeer("peer1"); //of tenant1
         waitForServerToHandleRequest();
-        assertEquals(2, service.getTenants().size()); //tenant1 still has a peer in the orchestrator
+        assertEquals(2, service.getTenants().size()); //tenant1 still has another peer in the orchestrator
         assertEquals(2 ,service.getPeers().size());
         assertEquals(2, service.getPeersPublicKeys().size());
 
@@ -67,7 +67,7 @@ public class ITest {
 
     private void waitForServerToHandleRequest() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
